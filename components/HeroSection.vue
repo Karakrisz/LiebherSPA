@@ -128,7 +128,7 @@
 .hero-section__overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
 
@@ -163,6 +163,7 @@
   line-height: 1.2;
   font-weight: 700;
   margin: 0;
+  width: 60%;
 }
 
 .hero-section__subtitle {
@@ -178,7 +179,7 @@
   display: inline-block;
   margin-top: 2rem;
   padding: 0.75rem 1.5rem;
-  background-color: #ff6600;
+  background-color: #FF6D00;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
@@ -200,11 +201,11 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  background-color: #ffdd00;
+  background-color: #FFD51E;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.75rem 1rem;
+  padding: 1em;
   font-size: 0.9rem;
   color: #000000;
   /* Mivel a szülő .hero-section display:flex és flex-direction:column,
@@ -229,6 +230,7 @@
 .contact-bar__text {
   color: inherit;
   text-decoration: none;
+  font-style: normal;
 }
 
 /* Mobilon a kontakt-elemek egymás alá kerülnek */

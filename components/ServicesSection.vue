@@ -99,8 +99,8 @@ const services = [
 
 <style lang="scss" scoped>
 .services {
-  padding: 4rem 1rem;
-
+  padding: 5.3em 0 0 0;
+  text-align: center;
   /* ---- CÍM ---- */
   &__heading {
     text-align: center;
@@ -108,17 +108,17 @@ const services = [
     font-weight: 700;
     position: relative;
     display: inline-block;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2.5em;
 
     /* Sárga aláhúzás a cím alatt */
     &::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 100%;
-      height: 0.5rem;
-      background-color: #ffd600; /* Liebher sárga */
+      bottom: 0;
+      left: -0.6em;
+      width: 9.7em;
+      height: 0.5em;
+      background-color: #ffd51e; /* Liebher sárga */
       z-index: -1;
     }
   }
@@ -166,12 +166,8 @@ const services = [
       left: 0;
       background-size: cover;
       background-position: center;
-      filter: brightness(0.5); /* sötétebb overlay érzés */
+      filter: brightness(0.25); /* sötétebb overlay érzés */
       transition: filter 0.3s ease;
-    }
-
-    &:hover &-background {
-      filter: brightness(0.3);
     }
 
     /* Szöveges konténer a kártya tetején */
@@ -181,8 +177,9 @@ const services = [
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* alsó szegélyhez igazítjuk a szöveget */
+      justify-content: center;
       height: 100%;
+      text-align: left;
     }
 
     &-title {
@@ -195,6 +192,7 @@ const services = [
       font-size: 0.9rem;
       margin: 0;
       line-height: 1.4;
+      width: 60%;
     }
   }
 
