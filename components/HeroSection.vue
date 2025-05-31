@@ -1,16 +1,14 @@
-<script setup>
-// (No special logic required here for now.)
-// If you need to pass props (e.g. dynamic text or links), you can add them via defineProps().
-</script>
-
 <template>
   <section
     class="hero-section"
     aria-label="Főoldal hőskép: profi bontás és földmunka Keszthelyen"
   >
-    <div class="hero-section__overlay">
+    <!-- Félátlátszó overlay, ami az egész hero fölé kerül -->
+    <div class="hero-section__overlay"></div>
+
+    <!-- A “fő rész”: itt helyezkedik el a tartalom, középre zárva a contact-bar fölötti területen -->
+    <div class="hero-section__main">
       <div class="hero-section__content">
-        <!-- Main headline (SEO: H1) -->
         <h1 class="hero-section__title">
           Professzionális bontás és földmunka Keszthely szívében –<br />
           <span class="hero-section__subtitle"
@@ -18,8 +16,6 @@
           >
         </h1>
 
-        <!-- Call‐to‐action button -->
-        <!-- TODO: Replace `#` with your real route, e.g. `/contact` or a NuxtLink if you have a contact page/component. -->
         <a
           href="#"
           class="hero-section__button"
@@ -31,10 +27,9 @@
       </div>
     </div>
 
-    <!-- Contact info bar at bottom of hero -->
+    <!-- Contact-bar fix pozícióban, a hero alján -->
     <address class="contact-bar">
       <div class="contact-bar__item">
-        <!-- Location icon (inline SVG) -->
         <svg
           class="contact-bar__icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +50,6 @@
       </div>
 
       <div class="contact-bar__item">
-        <!-- Email icon (inline SVG) -->
         <svg
           class="contact-bar__icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +72,6 @@
       </div>
 
       <div class="contact-bar__item">
-        <!-- Phone icon (inline SVG) -->
         <svg
           class="contact-bar__icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -106,48 +99,65 @@
   </section>
 </template>
 
+<script setup>
+// Jelenleg nem kell extra logika. Ha NuxtLinket használsz a gombhoz,
+// cseréld le a <a href="#">-t <NuxtLink to="/contact">–re.
+</script>
+
 <style lang="scss" scoped>
 /*───────────────────────────────────────────────────────────
-    1. ROOT / BLOCK: .hero-section
+    1. .hero-section: full-height, flex‐oszlop, hogy a contact-bar
+       mindig alul legyen, a fő rész pedig középre igazolt legyen
   ───────────────────────────────────────────────────────────*/
 .hero-section {
   position: relative;
   width: 100%;
-  height: 100vh; /* fullscreen hero */
-  background-image: url('/img/test.jpg'); /* <-- adjust path */
+  height: 100vh;
+  background-image: url('/img/test.jpg'); /* beállítod a saját képed útját */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  color: #ffffff; /* white text */
-  font-family: 'Helvetica Neue', Arial, sans-serif; /* adjust to your project’s font */
+  /* Így a .hero-section__main (fő rész) kitölti a rendelkezésre álló magasságot
+       a contact-bar aljáig, majd a contact-bar fixen lent marad. */
 }
 
-/* A dark overlay to ensure text legibility on any part of background */
+/* Az overlay marad teljesen lefedő: a hero-section szülőn belül */
 .hero-section__overlay {
   position: absolute;
-  inset: 0; /* full coverage */
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
-/* Container for centering content horizontally & vertically (slightly top) */
-.hero-section__content {
+/*───────────────────────────────────────────────────────────
+    2. .hero-section__main: ez a hero "fő" része a contact-bar
+       fölött. Itt van a flex középre/ középen igazítva a content.
+  ───────────────────────────────────────────────────────────*/
+.hero-section__main {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 15vh; /* push down a bit */
-  padding-left: 1rem;
-  padding-right: 1rem;
-  text-align: left;
+
+  /* Kitölti a maradék magasságot a contact-bar-ig */
+  flex: 1;
+
+  /* Flex középre mindkét tengelyen */
+  display: flex;
+  align-items: center; /* vízszintes középre */
 }
 
 /*───────────────────────────────────────────────────────────
-    2. ELEMENTS INSIDE .hero-section
+    3. .hero-section__content: maga a tartalom (szöveg+gomb)
   ───────────────────────────────────────────────────────────*/
+.hero-section__content {
+  max-width: 1200px; /* igény szerint tetszőleges érték */
+  margin: auto;
+  color: #ffffff;
+}
+
+/* Fejléc (h1) és alcím */
 .hero-section__title {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -156,18 +166,19 @@
 }
 
 .hero-section__subtitle {
-  display: block; /* forces subtitle on new line */
+  display: block;
   font-size: 1.5rem;
   font-weight: 400;
   margin-top: 0.5rem;
+  color: #ffffff;
 }
 
-/* Call‐to‐action button */
+/* CTA gomb */
 .hero-section__button {
   display: inline-block;
   margin-top: 2rem;
   padding: 0.75rem 1.5rem;
-  background-color: #ff6600; /* orange, adjust to your brand color */
+  background-color: #ff6600;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
@@ -178,40 +189,41 @@
 
 .hero-section__button:hover,
 .hero-section__button:focus {
-  background-color: #e65c00; /* -10% sötétebb narancs */
+  background-color: #e65c00; /* manuálisan sötétebb árnyalat */
   outline: none;
 }
 
 /*───────────────────────────────────────────────────────────
-    3. CONTACT BAR (BLOCK: .contact-bar)
+    4. contact-bar: fixen a hero alján, sárga háttérrel
   ───────────────────────────────────────────────────────────*/
 .contact-bar {
   position: relative;
   z-index: 2;
   width: 100%;
-  background-color: #ffdd00; /* bright yellow */
+  background-color: #ffdd00;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
   color: #000000;
+  /* Mivel a szülő .hero-section display:flex és flex-direction:column,
+       a contact-bar a .hero-section__main után kerül a végére. */
 }
 
-/* Each item (address / email / phone) is flexed */
+/* contact-bar belső elemei */
 .contact-bar__item {
   display: flex;
   align-items: center;
   margin: 0 1.5rem;
 }
 
-/* Icon next to text */
 .contact-bar__icon {
   flex-shrink: 0;
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
-  color: inherit; /* inherit text color (black) */
+  color: inherit;
 }
 
 .contact-bar__text {
@@ -219,7 +231,7 @@
   text-decoration: none;
 }
 
-/* On very narrow screens, stack contact items vertically */
+/* Mobilon a kontakt-elemek egymás alá kerülnek */
 @media (max-width: 600px) {
   .contact-bar {
     flex-direction: column;
