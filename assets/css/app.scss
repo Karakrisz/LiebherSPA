@@ -189,7 +189,9 @@ ul {
 
 // Header Styles
 .header-content {
-  padding: 1em 5em;
+  padding: 1em 0;
+  max-width: 1200px;
+  margin: auto;
   @include flex-center;
 
   &__logo-box {
@@ -201,7 +203,8 @@ ul {
 
   &__nav-box {
     width: 80%;
-    @include flex-center;
+    @include flex-center();
+    justify-content: end;
   }
 }
 
@@ -213,16 +216,16 @@ ul {
     @include flex-center;
   }
 
-  &__item {
-    padding-left: 2.5em;
-  }
-
   &__list__li {
-    &:first-child {
-      border-left: 0.12rem solid $black;
+    padding: 1.3em;
+    &:last-child {
+      padding-right: 0;
     }
-    &__img {
-      width: 45%;
+    &:last-child a {
+      background-color: #181818;
+      color: #fff;
+      padding: 1em;
+      border-radius: 0.5em;
     }
   }
 }
@@ -235,7 +238,7 @@ ul {
 }
 
 .hero-container {
-  top: 50%; 
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   &__content {

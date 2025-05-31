@@ -10,7 +10,7 @@ const machines = [
     id: 1,
     title: 'Láncos kotrógépek (3,5–23 tonnáig)',
     available: true,
-    count: 5, // pl. 5 darab elérhető
+    // count: 5, // pl. 5 darab elérhető
     image: '/img/test.jpg',
     description:
       'A lánctalpas kotrógépek kiválóan alkalmasak nehéz terepen végzett földmunkákhoz. Lánctalpas kialakításuknak köszönhetően stabilak és jól mozognak egyenetlen, puha talajon is. Ideálisak mély ásásokhoz, bontási munkákhoz és nagy mennyiségű anyag mozgatásához.',
@@ -19,7 +19,7 @@ const machines = [
     id: 2,
     title: 'Kombigépek (Kotró‐rakodó)',
     available: true,
-    count: 3,
+    // count: 3,
     image: '/img/test.jpg',
     description:
       'A kombigépek, más néven kotró‐rakodók, sokoldalú munkagépek, amelyek egyesítik a kotrógép és a rakodógép funkcióit. Elöl homlokrakodó kanállal, hátul pedig kotrókarral rendelkeznek, így alkalmasak ásásra, rakodásra és anyagmozgatásra egyaránt.',
@@ -28,10 +28,28 @@ const machines = [
     id: 3,
     title: 'Dömperek',
     available: false,
-    count: 0,
+    // count: 0,
     image: '/img/test.jpg',
     description:
       'A dömperek billenőplatós tehergépkocsik, amelyek elsősorban anyagszállításra szolgálnak. Képesek nagy mennyiségű föld, törmelék vagy egyéb anyag gyors és hatékony szállítására és lerakására.',
+  },
+  {
+    id: 4,
+    title: 'Úthengerek',
+    available: false,
+    // count: 0,
+    image: '/img/test.jpg',
+    description:
+      'Az úthenger talajtömörítő gép, amelyet az építőiparban utak és alapozások építésére használnak. A hengerek súlyuk és esetleges vibrációs funkciójuk révén tömörítik a talajt vagy az aszfaltot, biztosítva az alapok stabilitását.',
+  },
+  {
+    id: 5,
+    title: 'Billencs teherautó',
+    available: false,
+    // count: 0,
+    image: '/img/test.jpg',
+    description:
+      'A billencs teherautók olyan járművek, amelyek platója hidraulikusan billenthető, így lehetővé teszik az anyag gyors lerakását. Különösen hasznosak építkezéseken és tereprendezési munkáknál.​',
   },
 ]
 </script>
@@ -63,7 +81,7 @@ const machines = [
           </div>
 
           <!-- Leírás -->
-          <div class="fleet__content">
+          <div class="fleet__content fleet__content--right">
             <h3 class="fleet__item-title">
               {{ machine.title }}
             </h3>
@@ -77,13 +95,13 @@ const machines = [
               }"
             >
               <span class="fleet__dot"></span>
-              <span class="fleet__status-text">
+              <!-- <span class="fleet__status-text">
                 {{
                   machine.available
                     ? `${machine.count} db elérhető`
                     : 'Jelenleg nem elérhető'
                 }}
-              </span>
+              </span> -->
             </div>
 
             <!-- Részletes leírás -->
@@ -108,7 +126,9 @@ const machines = [
 
 <style lang="scss" scoped>
 .fleet {
-  padding: 4rem 1rem;
+  padding: 5em 0 5em 0;
+  text-align: center;
+  background-color: #f6f6f6;
 
   /* ---- 1. Szekció címe ---- */
   &__heading {
@@ -117,16 +137,17 @@ const machines = [
     font-weight: 700;
     display: inline-block;
     position: relative;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2.5em;
+    z-index: 1;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 100%;
-      height: 0.5rem;
-      background-color: #ffd600; /* sárga aláhúzás */
+      bottom: 0;
+      left: -0.6em;
+      width: 7.7em;
+      height: 0.5em;
+      background-color: #ffd51e; /* Liebher sárga */
       z-index: -1;
     }
   }
@@ -140,6 +161,26 @@ const machines = [
     display: flex;
     flex-direction: column;
     gap: 3rem;
+
+    > *:nth-child(1) {
+      text-align: left;
+    }
+
+    > *:nth-child(2) {
+      text-align: end;
+    }
+
+    > *:nth-child(3) {
+      text-align: left;
+    }
+
+    > *:nth-child(4) {
+      text-align: end;
+    }
+
+    > *:nth-child(5) {
+      text-align: left;
+    }
   }
 
   /* ---- 3. Egy-egy gép (li) ---- */
@@ -152,7 +193,7 @@ const machines = [
     /* Asztali nézetben kétoszlopos, alternáló elrendezés */
     @media (min-width: 768px) {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: center;
       gap: 2rem;
 
       /* Ha --reverse, akkor a kép és szöveg megfordul */
@@ -240,7 +281,7 @@ const machines = [
     display: inline-block;
     margin-top: 1rem;
     padding: 0.75rem 1.5rem;
-    background-color: #ff6a00; /* narancs */
+    background-color: #ff6d00; /* narancs */
     color: #ffffff;
     border-radius: 0.375rem;
     text-decoration: none;
@@ -248,6 +289,7 @@ const machines = [
     font-weight: 500;
     text-align: center;
     transition: background-color 0.2s ease;
+    width: max-content;
 
     &:hover {
       background-color: #e65c00;

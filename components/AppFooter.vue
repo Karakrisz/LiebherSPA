@@ -1,123 +1,168 @@
 <template>
-  <section class="contact" aria-labelledby="contact-heading">
-    <!-- Itt jön az új container-wrapper -->
-    <div class="container">
-      <div class="contact__container">
-        <!-- BAL OLDAL: ŰRLAP -->
-        <div class="contact__form-wrapper">
-          <h2 id="contact-heading" class="contact__heading">Kapcsolat</h2>
-          <form class="contact__form" @submit.prevent="onSubmit">
-            <div class="contact__form-row">
-              <div class="contact__field">
-                <label for="name" class="contact__label">Név*</label>
-                <input
-                  id="name"
-                  v-model="form.name"
-                  type="text"
-                  required
-                  placeholder="Név"
-                  class="contact__input"
-                />
+  <footer>
+    <section class="contact" aria-labelledby="contact-heading">
+      <!-- Itt jön az új container-wrapper -->
+      <div class="container">
+        <div class="contact__container">
+          <!-- BAL OLDAL: ŰRLAP -->
+          <div class="contact__form-wrapper">
+            <h2 id="contact-heading" class="contact__heading">Kapcsolat</h2>
+            <form class="contact__form" @submit.prevent="onSubmit">
+              <div class="contact__form-row">
+                <div class="contact__field">
+                  <label for="name" class="contact__label">Név*</label>
+                  <input
+                    id="name"
+                    v-model="form.name"
+                    type="text"
+                    required
+                    placeholder="Név"
+                    class="contact__input"
+                  />
+                </div>
+                <div class="contact__field">
+                  <label for="phone" class="contact__label">Telefonszám*</label>
+                  <input
+                    id="phone"
+                    v-model="form.phone"
+                    type="tel"
+                    required
+                    placeholder="Telefonszám"
+                    class="contact__input"
+                  />
+                </div>
               </div>
-              <div class="contact__field">
-                <label for="phone" class="contact__label">Telefonszám*</label>
-                <input
-                  id="phone"
-                  v-model="form.phone"
-                  type="tel"
-                  required
-                  placeholder="Telefonszám"
-                  class="contact__input"
-                />
-              </div>
-            </div>
 
-            <div class="contact__form-row">
-              <div class="contact__field">
-                <label for="email" class="contact__label">E-mail cím*</label>
-                <input
-                  id="email"
-                  v-model="form.email"
-                  type="email"
-                  required
-                  placeholder="E-mail cím"
-                  class="contact__input"
-                />
+              <div class="contact__form-row">
+                <div class="contact__field">
+                  <label for="email" class="contact__label">E-mail cím*</label>
+                  <input
+                    id="email"
+                    v-model="form.email"
+                    type="email"
+                    required
+                    placeholder="E-mail cím"
+                    class="contact__input"
+                  />
+                </div>
+                <div class="contact__field">
+                  <label for="subject" class="contact__label">Tárgy</label>
+                  <input
+                    id="subject"
+                    v-model="form.subject"
+                    type="text"
+                    placeholder="Tárgy"
+                    class="contact__input"
+                  />
+                </div>
               </div>
-              <div class="contact__field">
-                <label for="subject" class="contact__label">Tárgy</label>
-                <input
-                  id="subject"
-                  v-model="form.subject"
-                  type="text"
-                  placeholder="Tárgy"
-                  class="contact__input"
-                />
+
+              <div class="contact__form-row">
+                <div class="contact__field contact__field--full">
+                  <label for="message" class="contact__label">Üzenet</label>
+                  <textarea
+                    id="message"
+                    v-model="form.message"
+                    rows="6"
+                    placeholder="Üzenet"
+                    class="contact__textarea"
+                  ></textarea>
+                </div>
               </div>
-            </div>
 
-            <div class="contact__form-row">
-              <div class="contact__field contact__field--full">
-                <label for="message" class="contact__label">Üzenet</label>
-                <textarea
-                  id="message"
-                  v-model="form.message"
-                  rows="6"
-                  placeholder="Üzenet"
-                  class="contact__textarea"
-                ></textarea>
-              </div>
-            </div>
+              <p class="contact__disclaimer">
+                A küldés gombra kattintva automatikusan elfogadja az
+                <NuxtLink
+                  to="/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact__disclaimer-link"
+                >
+                  Adatkezelési Nyilatkozatot </NuxtLink
+                >.
+              </p>
 
-            <p class="contact__disclaimer">
-              A küldés gombra kattintva automatikusan elfogadja az
-              <NuxtLink
-                to="/adatkezelesi-nyilatkozat"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact__disclaimer-link"
-              >
-                Adatkezelési Nyilatkozatot </NuxtLink
-              >.
-            </p>
+              <button type="submit" class="contact__submit">Küldés</button>
+            </form>
+          </div>
 
-            <button type="submit" class="contact__submit">Küldés</button>
-          </form>
+          <!-- JOBB OLDAL: Kontakt‐infó -->
+          <div class="contact__info-wrapper">
+            <ul class="contact__info-list">
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">📍</span>
+                <div>
+                  <span class="contact__info-label">Cím</span>
+                  <span class="contact__info-text"
+                    >8360 Keszthely, Gyöpi út 13.</span
+                  >
+                </div>
+              </li>
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">✉️</span>
+                <div>
+                  <span class="contact__info-label">E-mail cím</span>
+                  <span class="contact__info-text">
+                    szilveszter0827@gmail.com
+                  </span>
+                </div>
+              </li>
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">📞</span>
+                <div>
+                  <span class="contact__info-label">Telefonszám</span>
+                  <span class="contact__info-text">06 20 344 40 17</span>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- JOBB OLDAL: Kontakt‐infó -->
-        <div class="contact__info-wrapper">
-          <ul class="contact__info-list">
-            <li class="contact__info-item">
-              <span class="contact__info-icon" aria-hidden="true">📍</span>
-              <div>
-                <span class="contact__info-label">Cím</span>
-                <span class="contact__info-text"
-                  >8360 Keszthely, Gyöpi út 13.</span
+        <!-- LÁBRÉSZ: Cég neve és navigáció -->
+        <div class="footer">
+          <div class="footer__company">Liebher & Liebher Bt</div>
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link">Rólunk</NuxtLink>
+              </li>
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link"
+                  >Szolgáltatásaink</NuxtLink
                 >
-              </div>
-            </li>
-            <li class="contact__info-item">
-              <span class="contact__info-icon" aria-hidden="true">✉️</span>
-              <div>
-                <span class="contact__info-label">E-mail cím</span>
-                <span class="contact__info-text">
-                  szilveszter0827@gmail.com
-                </span>
-              </div>
-            </li>
-            <li class="contact__info-item">
-              <span class="contact__info-icon" aria-hidden="true">📞</span>
-              <div>
-                <span class="contact__info-label">Telefonszám</span>
-                <span class="contact__info-text">06 20 344 40 17</span>
-              </div>
-            </li>
-          </ul>
+              </li>
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link">Galéria</NuxtLink>
+              </li>
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link">Kapcsolat</NuxtLink>
+              </li>
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link"
+                  >Ajánlatkérés</NuxtLink
+                >
+              </li>
+              <li class="footer__nav-item">
+                <NuxtLink to="/" class="footer__nav-link"
+                  >Adatkezelési Nyilatkozat</NuxtLink
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="footer__credits">
+          <a
+            href="https://digitalseedstudio.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer__credits-link"
+          >
+            <img alt="Digital Seed Studio" class="footer__credits-logo" />
+          </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </footer>
 </template>
 
 <script setup>
@@ -342,6 +387,93 @@ const onSubmit = () => {
   &__info-text {
     font-size: 0.95rem;
     line-height: 1.4;
+  }
+}
+
+/* ================================================
+   LÁBRÉSZ STÍLUSOK
+   ================================================ */
+.footer {
+  background-color: #e6e6e6;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5em 2em;
+  }
+
+  &__company {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 1rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__nav-item {
+    font-size: 0.9rem;
+  }
+
+  &__nav-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &:focus {
+      color: #ff6a00;
+      outline: none;
+    }
+  }
+
+  &__credits {
+    text-align: center;
+    margin: 3em 0;
+  }
+
+  &__credits-link {
+    display: block;
+    transition: opacity 0.2s ease;
+
+    &:hover,
+    &:focus {
+      opacity: 0.8;
+      outline: none;
+    }
+  }
+
+  &__credits-logo {
+    height: 2rem;
+    width: auto;
   }
 }
 </style>
