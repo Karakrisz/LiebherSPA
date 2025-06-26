@@ -403,15 +403,16 @@ const onSubmit = () => {
     position: relative;
     display: inline-block;
     margin-bottom: 2rem;
+    z-index: 10;
 
     &::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
-      left: 0;
-      width: 100%;
-      height: 0.5rem;
-      background-color: #ff6a00;
+      bottom: 0;
+      left: -0.4em;
+      width: 6em;
+      height: 0.5em;
+      background-color: #ff6a00; 
       z-index: -1;
     }
   }
