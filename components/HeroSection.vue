@@ -117,11 +117,13 @@
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-
   display: flex;
   flex-direction: column;
   /* Így a .hero-section__main (fő rész) kitölti a rendelkezésre álló magasságot
        a contact-bar aljáig, majd a contact-bar fixen lent marad. */
+  @media screen and (max-width: 767px) {
+    padding: 2em;
+  }
 }
 
 /* Az overlay marad teljesen lefedő: a hero-section szülőn belül */
@@ -179,7 +181,7 @@
   display: inline-block;
   margin-top: 2rem;
   padding: 0.75rem 1.5rem;
-  background-color: #FF6D00;
+  background-color: #ff6d00;
   color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
@@ -201,7 +203,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  background-color: #FFD51E;
+  background-color: #ffd51e;
   display: flex;
   justify-content: center;
   align-items: center;

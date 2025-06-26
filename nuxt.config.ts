@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: 'Digital Seed Studio',
+      title: 'Liebher & Liebher Bt',
       htmlAttrs: {
         lang: 'hu',
       },
@@ -17,7 +17,8 @@ export default defineNuxtConfig({
           hid: 'description',
           name: 'description',
           content:
-            'SEO-optimalizált weboldal készítés vállalkozásoknakLegyen weboldalad gyors, modern és keresőoptimalizált!',
+          'Gépi földmunka és bontás Magyarország környékén – 25 év tapasztalattalVállaljuk épületek bontását, tereprendezést, csatornázást és árokásást korszerű gépekkel, megbízható csapattal.',
+        
         },
         { name: 'format-detection', content: 'telephone=no' },
         { hid: 'robots', name: 'robots', content: 'index, follow' },

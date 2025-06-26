@@ -4,7 +4,7 @@ import { NuxtLink } from '#components'
 const links = [
   { name: 'Főoldal', path: '/', icon: 'home' },
   { name: 'Rólunk', path: '/', icon: 'users' },
-  { name: 'Szolgáltatások', path: '/szolgaltatasok', icon: 'briefcase' },
+  { name: 'Szolgáltatások', path: '/', icon: 'briefcase' },
   { name: 'Galéria', path: '/', icon: 'image' },
   { name: 'Kapcsolat', path: '/', icon: 'mail' },
   { name: 'Árajánlatkérés', path: '/', icon: 'file-text' },
@@ -77,7 +77,12 @@ watch(isMenuOpen, (newVal) => {
     <div class="header-content d-flex">
       <div class="logo-box header-content__logo-box">
         <NuxtLink href="/" class="header-content__logo-box__link">
-          Liebher & Liebher Bt
+          <NuxtImg
+            src="/img/logo.webp"
+            alt="Liebher"
+            class="header-content__logo-box__link__img"
+            height="100%"
+          />
         </NuxtLink>
       </div>
       <div class="nav-box header-content__nav-box d-flex">
@@ -303,7 +308,6 @@ watch(isMenuOpen, (newVal) => {
   padding: 10px;
   z-index: 1001;
   position: relative;
-  bottom: 2.7em;
 }
 
 .bar {

@@ -189,7 +189,7 @@ ul {
 
 // Header Styles
 .header-content {
-  padding: 1em 0;
+  padding: 0 1em;
   max-width: 1200px;
   margin: auto;
   @include flex-center;
@@ -197,7 +197,7 @@ ul {
   &__logo-box {
     width: 20%;
     &__link__img {
-      width: 70%;
+      width: 55%;
     }
   }
 
@@ -373,5 +373,16 @@ $hamburger-bar-color: #1c362b;
         border-left: unset;
       }
     }
+  }
+  .header-content__nav-box {
+    justify-content: flex-start;
+  }
+
+  .header-content__logo-box__link__img {
+    width: 100%;
+    float: right;
+  }
+  .header-content__logo-box {
+    width: 33%;
   }
 }

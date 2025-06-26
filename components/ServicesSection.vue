@@ -99,7 +99,7 @@ const services = [
 
 <style lang="scss" scoped>
 .services {
-  padding: 5.3em 0 5em 0;
+  padding: 5.3em 2em 5em 2em;
   text-align: center;
   /* ---- CÍM ---- */
   &__heading {

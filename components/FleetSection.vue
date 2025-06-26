@@ -11,7 +11,7 @@ const machines = [
     title: 'Láncos kotrógépek (3,5–23 tonnáig)',
     available: true,
     // count: 5, // pl. 5 darab elérhető
-    image: '/img/test.jpg',
+    image: '/img/lancos.webp',
     description:
       'A lánctalpas kotrógépek kiválóan alkalmasak nehéz terepen végzett földmunkákhoz. Lánctalpas kialakításuknak köszönhetően stabilak és jól mozognak egyenetlen, puha talajon is. Ideálisak mély ásásokhoz, bontási munkákhoz és nagy mennyiségű anyag mozgatásához.',
   },
@@ -20,7 +20,7 @@ const machines = [
     title: 'Kombigépek (Kotró‐rakodó)',
     available: true,
     // count: 3,
-    image: '/img/test.jpg',
+    image: '/img/kombigep.webp',
     description:
       'A kombigépek, más néven kotró‐rakodók, sokoldalú munkagépek, amelyek egyesítik a kotrógép és a rakodógép funkcióit. Elöl homlokrakodó kanállal, hátul pedig kotrókarral rendelkeznek, így alkalmasak ásásra, rakodásra és anyagmozgatásra egyaránt.',
   },
@@ -29,7 +29,7 @@ const machines = [
     title: 'Dömperek',
     available: false,
     // count: 0,
-    image: '/img/test.jpg',
+    image: '/img/domper.webp',
     description:
       'A dömperek billenőplatós tehergépkocsik, amelyek elsősorban anyagszállításra szolgálnak. Képesek nagy mennyiségű föld, törmelék vagy egyéb anyag gyors és hatékony szállítására és lerakására.',
   },
@@ -38,7 +38,7 @@ const machines = [
     title: 'Úthengerek',
     available: false,
     // count: 0,
-    image: '/img/test.jpg',
+    image: '/img/uthenger.webp',
     description:
       'Az úthenger talajtömörítő gép, amelyet az építőiparban utak és alapozások építésére használnak. A hengerek súlyuk és esetleges vibrációs funkciójuk révén tömörítik a talajt vagy az aszfaltot, biztosítva az alapok stabilitását.',
   },
@@ -47,7 +47,7 @@ const machines = [
     title: 'Billencs teherautó',
     available: false,
     // count: 0,
-    image: '/img/test.jpg',
+    image: '/img/lancos.webp',
     description:
       'A billencs teherautók olyan járművek, amelyek platója hidraulikusan billenthető, így lehetővé teszik az anyag gyors lerakását. Különösen hasznosak építkezéseken és tereprendezési munkáknál.​',
   },
@@ -72,7 +72,7 @@ const machines = [
         >
           <!-- Kép -->
           <div class="fleet__image">
-            <img
+            <NuxtImg
               :src="machine.image"
               :alt="machine.title"
               width="560"
@@ -126,7 +126,7 @@ const machines = [
 
 <style lang="scss" scoped>
 .fleet {
-  padding: 5em 0 5em 0;
+  padding: 5em 2em 5em 2em;
   text-align: center;
   background-color: #f6f6f6;
 
@@ -220,9 +220,13 @@ const machines = [
     img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 25em;
       object-fit: cover;
       border-radius: 0.5rem;
+
+      @media screen and (max-width: 767px) {
+        height: 100%;
+      }
     }
   }
 
