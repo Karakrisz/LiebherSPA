@@ -123,6 +123,7 @@
        a contact-bar aljáig, majd a contact-bar fixen lent marad. */
   @media screen and (max-width: 767px) {
     padding: 2em;
+    height: 70vh;
   }
 }
 
@@ -166,6 +167,11 @@
   font-weight: 700;
   margin: 0;
   width: 60%;
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.5rem;
+    width: 100%;
+  }
 }
 
 .hero-section__subtitle {
@@ -174,6 +180,10 @@
   font-weight: 400;
   margin-top: 0.5rem;
   color: #ffffff;
+
+  @media screen and (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 }
 
 /* CTA gomb */
