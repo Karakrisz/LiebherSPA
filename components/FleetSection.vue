@@ -111,7 +111,7 @@ const machines = [
 
             <!-- Kibérlem gomb -->
             <NuxtLink
-              to="/#kapcsolat"
+              to="/kapcsolat"
               class="fleet__button"
               aria-label="Kibérem {{ machine.title }}"
             >

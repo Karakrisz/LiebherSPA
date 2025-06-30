@@ -16,14 +16,14 @@
           >
         </h1>
 
-        <a
-          href="#"
+        <NuxtLink
+          to="kapcsolat"
           class="hero-section__button"
           role="button"
           aria-label="Árajánlat kérése"
         >
           Árajánlat kérése
-        </a>
+        </NuxtLink>
       </div>
     </div>
 

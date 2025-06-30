@@ -95,7 +95,7 @@ a {
 }
 
 p {
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -265,6 +265,12 @@ ul {
   }
 }
 
+.subpage-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1em;
+}
+
 // Media Queries
 @mixin responsive($breakpoint) {
   @if $breakpoint == tablet {
@@ -384,5 +390,13 @@ $hamburger-bar-color: #1c362b;
   }
   .header-content__logo-box {
     width: 33%;
+  }
+
+  .contact {
+    padding: 5em 1em 0 1em !important;
+  }
+
+  .contact__heading {
+    margin-left: 0.5em;
   }
 }

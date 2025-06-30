@@ -2,211 +2,230 @@
 useHead({
   title: 'Szolgáltatások',
 })
+
+// Egy példatömb a szolgáltatásokról. A valós projektben ez lehet adatbázisból,
+// CMS-ből vagy API-ból jön, de most bemutatásképpen itt van „hardcode”-olva.
+const services = [
+  {
+    id: 1,
+    title: 'Épületbontás',
+    description:
+      'Kézi és gépi bontási munkák, beleértve a pulverizátorral való bontást és törőfejezést.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/epuletbontas',
+  },
+  {
+    id: 2,
+    title: 'Földmunka',
+    description: 'Teljes körű földmunkák, lyukfúrás, tuskózás és ágrarás.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/foldmunka',
+  },
+  {
+    id: 3,
+    title: 'Közműfektetés',
+    description:
+      'Szakértői csapatunkkal vállaljuk közművek fektetését és kapcsolódó munkálatokat.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/kozmufektetes',
+  },
+  {
+    id: 4,
+    title: 'Térkövezés és kőműves munkák',
+    description:
+      'Minőségi térkövezés, játszóterek és kültéri fitnessparkok kivitelezése.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/terkozes-komuves',
+  },
+  {
+    id: 5,
+    title: 'Kertépítés',
+    description:
+      'Komplett kertépítési szolgáltatások, beleértve az esővíztartályok telepítését.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/kertepites',
+  },
+  {
+    id: 6,
+    title: 'Szállítás',
+    description:
+      'Sitt, zöldhulladék és szemét szállítása megbízhatóan és gyorsan.',
+    image: '/img/test.jpg',
+    // link: '/szolgaltatasok/szallitas',
+  },
+]
 </script>
 
 <template>
-  <div class="subpage-content subpage-services-content">
-    <section>
-      <div class="services-content position-relative">
-        <div class="page__header page__header--right">
-          <h3 class="page__header__h3 text-color-w text-transform-uppercase">
-            SZOLGÁLTATÁSOK
-          </h3>
-        </div>
+  <section class="services" aria-labelledby="services-heading">
+    <div class="container">
+      <!-- Szolgáltatások címe -->
+      <h2 id="services-heading" class="services__heading">Szolgáltatásaink</h2>
 
-        <div class="servive-grid servive-grid--margin-bottom grid-3">
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/gepjarmubiztositas.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                Gépjármű biztosítás
-              </h3>
-              <p class="service-box__description text-color">
-                Nyugodt utazást és védelmet nyújt minden kilométeren,
-                balesetektől kezdve a váratlan meghibásodásokig.
+      <!-- Szolgáltatások listája -->
+      <ul class="services__list">
+        <li
+          v-for="service in services"
+          :key="service.id"
+          class="services__list-item"
+        >
+          <!-- Minden szolgáltatás egy link, ami a részletes oldalra mutat -->
+          <NuxtLink
+            :to="service.link"
+            class="services__item"
+            :aria-label="service.title"
+          >
+            <!-- Háttérkép div, CSS-ben állítjuk be a BG-image-et -->
+            <div
+              class="services__item-background"
+              :style="{ backgroundImage: `url(${service.image})` }"
+            ></div>
+            <!-- Szöveges tartalom -->
+            <div class="services__item-content">
+              <h3 class="services__item-title">{{ service.title }}</h3>
+              <p class="services__item-description">
+                {{ service.description }}
               </p>
             </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink
-                to="gepjarmu-biztositas"
-                class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
+          </NuxtLink>
+        </li>
+      </ul>
 
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/utazasbiztositas.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                UTASbiztosítás
-              </h3>
-              <p class="service-box__description text-color">
-                A gondtalan kalandok záloga, amely biztonságot nyújt a világ
-                bármely pontján, legyen szó váratlan eseményekről vagy
-                egészségügyi sürgősségekről.
-              </p>
-            </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink to="utasbiztositas" class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/tanulobiztositas.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                TANULÓbiztosítás
-              </h3>
-              <p class="service-box__description text-color">
-                A tanulóbiztosítás biztos háttér a diákok számára, hogy
-                nyugodtan összpontosíthassanak tanulmányaikra, miközben
-                védelemben részesülnek az élet váratlan eseményei ellen.
-              </p>
-            </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink
-                to="tanulobiztositas"
-                class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
-
-        <div class="servive-grid grid-3">
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/rendezveny_biztositas.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                RENDEZVÉNYSZOLGÁLAT
-              </h3>
-              <p class="service-box__description text-color">
-                Biztosításaink magukban foglalják a felelősségbiztosítást, a
-                rendezvény helyszínének védelmét, valamint az egyedi igényekhez
-                igazodó kockázatkezelést, biztosítva ezzel a rendezvény
-                zavartalan lebonyolítását..
-              </p>
-            </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink
-                to="rendezvenyszolgalat"
-                class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/karbejelentes.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                Kárbejelentés
-              </h3>
-              <p class="service-box__description text-color">
-                A kárbejelentési folyamatunk során a biztosítási alkusz
-                szakértői segítséget és támogatást nyújtanak az ügyfeleknek,
-                hogy a kárbejelentés gyorsan és zökkenőmentesen történjen.
-              </p>
-            </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink to="karbejentes" class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-
-          <div class="service-box bg-color-w position-relative">
-            <NuxtImg
-              class="service-box__img"
-              src="/img/services/szemelyes_tanacsadas.svg"
-              alt="Biztos Alkuszom"
-            />
-            <div class="service-box__text">
-              <h3
-                class="service-box__title text-transform-uppercase text-color text-center"
-              >
-                Személyes tanácsadás
-              </h3>
-              <p class="service-box__description text-color">
-                személyre szabott tanácsadásunkkal biztosítjuk, hogy minden
-                ügyfél megkapja az egyéni igényeinek megfelelő biztosítási
-                tanácsokat és megoldásokat, biztosítva ezzel az optimális
-                védelmet és nyugalmat.
-              </p>
-            </div>
-            <div class="service-box__link-box position-absolute">
-              <NuxtLink
-                to="szemelyes-tanacsadas"
-                class="page-link text-color-w f-600"
-                >Tovább
-                <NuxtImg
-                  class="page-link__img position-relative"
-                  src="/img/partners/right-arrow.svg"
-                  alt="Biztos Alkuszom"
-                />
-              </NuxtLink>
-            </div>
-          </div>
-        </div>
+      <!-- „Összes szolgáltatás” gomb -->
+      <div class="services__actions">
+        <NuxtLink to="/kapcsolat" class="services__button">
+          Én is ajánlatot kérek
+        </NuxtLink>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
+
+<style lang="scss" scoped>
+.services {
+  padding: 5.3em 2em 5em 2em;
+  text-align: center;
+  /* ---- CÍM ---- */
+  &__heading {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto 2.5em;
+
+    /* Sárga aláhúzás a cím alatt */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: -0.6em;
+      width: 9.7em;
+      height: 0.5em;
+      background-color: #ffd51e; /* Liebher sárga */
+      z-index: -1;
+    }
+  }
+
+  /* ---- LISTA ---- */
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr; /* alapból 1 oszlop (mobil) */
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Ha a képernyő legalább 768px széles, legyen 2 oszlop */
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__list-item {
+    /* nincs külön speciális stílus, a belső .services__item kezeli a kártya kinézetét */
+  }
+
+  /* ---- SZOLGÁLTATÁS KÁRDSÉT ---- */
+  &__item {
+    position: relative;
+    display: block;
+    height: 200px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Háttérkép DIV (CSS-ben állítjuk be a background-image-et) */
+    &-background {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25); /* sötétebb overlay érzés */
+      transition: filter 0.3s ease;
+    }
+
+    /* Szöveges konténer a kártya tetején */
+    &-content {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      text-align: left;
+    }
+
+    &-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+    }
+
+    &-description {
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.4;
+      width: 60%;
+    }
+  }
+
+  /* ---- AKCIÓ GOMBOK ---- */
+  &__actions {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #333333;
+    }
+  }
+}
+
+/* Container segítségével középre igazítjuk a tartalmat nagyobb képernyőn */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+</style>

@@ -3,11 +3,11 @@ import { NuxtLink } from '#components'
 
 const links = [
   { name: 'Főoldal', path: '/', icon: 'home' },
-  { name: 'Rólunk', path: '/', icon: 'users' },
-  { name: 'Szolgáltatások', path: '/', icon: 'briefcase' },
-  { name: 'Galéria', path: '/', icon: 'image' },
-  { name: 'Kapcsolat', path: '/', icon: 'mail' },
-  { name: 'Árajánlatkérés', path: '/', icon: 'file-text' },
+  { name: 'Rólunk', path: '/rolunk', icon: 'users' },
+  { name: 'Szolgáltatások', path: '/szolgaltatasok', icon: 'briefcase' },
+  { name: 'Galéria', path: '/galeria', icon: 'image' },
+  { name: 'Kapcsolat', path: '/kapcsolat', icon: 'mail' },
+  { name: 'Árajánlatkérés', path: '/kapcsolat', icon: 'file-text' },
 ]
 
 const isMenuOpen = ref(false)

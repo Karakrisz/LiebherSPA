@@ -197,21 +197,21 @@
           <nav class="footer__nav">
             <ul class="footer__nav-list">
               <li class="footer__nav-item">
-                <NuxtLink to="/" class="footer__nav-link">Rólunk</NuxtLink>
+                <NuxtLink to="/rolunk" class="footer__nav-link">Rólunk</NuxtLink>
               </li>
               <li class="footer__nav-item">
-                <NuxtLink to="/" class="footer__nav-link"
+                <NuxtLink to="/szolgaltatasok" class="footer__nav-link"
                   >Szolgáltatásaink</NuxtLink
                 >
               </li>
               <li class="footer__nav-item">
-                <NuxtLink to="/" class="footer__nav-link">Galéria</NuxtLink>
+                <NuxtLink to="/galeria" class="footer__nav-link">Galéria</NuxtLink>
               </li>
               <li class="footer__nav-item">
-                <NuxtLink to="/" class="footer__nav-link">Kapcsolat</NuxtLink>
+                <NuxtLink to="/kapcsolat" class="footer__nav-link">Kapcsolat</NuxtLink>
               </li>
               <li class="footer__nav-item">
-                <NuxtLink to="/" class="footer__nav-link"
+                <NuxtLink to="/kapcsolat" class="footer__nav-link"
                   >Ajánlatkérés</NuxtLink
                 >
               </li>
@@ -412,7 +412,7 @@ const onSubmit = () => {
       left: -0.4em;
       width: 6em;
       height: 0.5em;
-      background-color: #ff6a00; 
+      background-color: #ff6a00;
       z-index: -1;
     }
   }
