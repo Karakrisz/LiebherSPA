@@ -46,7 +46,7 @@
                  2.5-2.5 2.5z"
           />
         </svg>
-        <span class="contact-bar__text">8360 Keszthely, Gyóni út 13.</span>
+        <span class="contact-bar__text">8360 Keszthely, Gyöpi út 13.</span>
       </div>
 
       <div class="contact-bar__item">
