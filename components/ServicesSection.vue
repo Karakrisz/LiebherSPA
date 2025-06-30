@@ -13,7 +13,7 @@ const services = [
   {
     id: 2,
     title: 'Földmunka',
-    description: 'Teljes körű földmunkák, lyukfúrás, tuskózás és ágrarás.',
+    description: 'Teljes körű földmunkák, lyukfúrás, tuskózás.',
     image: '/img/test.jpg',
     // link: '/szolgaltatasok/foldmunka',
   },
