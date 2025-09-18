@@ -66,8 +66,8 @@
                  4l-8 5-8-5V6l8 5 8-5v2z"
           />
         </svg>
-        <a class="contact-bar__text" href="mailto:szilveszter0827@gmail.com"
-          >szilveszter0827@gmail.com</a
+        <a class="contact-bar__text" href="mailto:sztalone70@gmail.com"
+          >sztalone70@gmail.com</a
         >
       </div>
 
@@ -93,7 +93,7 @@
                  1.02l-2.2 2.2z"
           />
         </svg>
-        <a class="contact-bar__text" href="tel:+36203444017">06 20 344 40 17</a>
+        <a class="contact-bar__text" href="tel:+36302041406">06 30 204 1406</a>
       </div>
     </address>
   </section>
