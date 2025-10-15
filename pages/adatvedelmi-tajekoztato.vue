@@ -6,21 +6,21 @@ useHead({
 
 <template>
   <section>
-    <div class="aszf-content subpage-two-services-content">
+    <div class="aszf-content subpage-two-services-content subpage-content subpage-footer-content">
       <h4
         class="aszf-content__h4 blog-box__text__h3 text-transform-uppercase text-color"
       >
         Adatkezelési Tájékoztató
       </h4>
 
-      <p class="aszf-content__p text-color">Elfogadás dátuma: 2024.05.28</p>
+      <p class="aszf-content__p text-color">Elfogadás dátuma: 2025.10.15</p>
 
       <h5
         class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
       >
         1. ADATKEZELŐ
       </h5>
-      <p class="aszf-content__p text-color">web@alkuszom.info</p>
+      <p class="aszf-content__p text-color">info@epuletbontas-foldmunka.hu</p>
 
       <h5
         class="aszf-content__h5 blog-box__text__h3 text-transform-uppercase text-color"
@@ -199,7 +199,7 @@ useHead({
         panaszokat legkésőbb 30 napon belül válaszolja meg Adatkezelő, amely
         határidő indokolt esetben további két hónappal meghosszabbítható.
         Kérjük, hogy az Önt megillető jogok gyakorlása érdekében a
-        web@alkuszom.info e-mail címre küldött üzenettel keresse meg az
+        info@epuletbontas-foldmunka.hu e-mail címre küldött üzenettel keresse meg az
         Adatkezelőt.
       </p>
 

@@ -5,7 +5,7 @@ const links = [
   { name: 'Főoldal', path: '/', icon: 'home' },
   { name: 'Rólunk', path: '/rolunk', icon: 'users' },
   { name: 'Szolgáltatások', path: '/szolgaltatasok', icon: 'briefcase' },
-  { name: 'Galéria', path: '/galeria', icon: 'image' },
+  // { name: 'Galéria', path: '/galeria', icon: 'image' },
   { name: 'Kapcsolat', path: '/kapcsolat', icon: 'mail' },
   { name: 'Árajánlatkérés', path: '/kapcsolat', icon: 'file-text' },
 ]
