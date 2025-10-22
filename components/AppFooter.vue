@@ -1,3 +1,73 @@
+<script setup>
+import { ref, reactive } from 'vue'
+
+const form = reactive({
+  name: '',
+  phone: '',
+  email: '',
+  subject: '',
+  message: '',
+})
+
+const isSubmitting = ref(false)
+const submitMessage = ref('')
+
+const onSubmit = async (event) => {
+  event.preventDefault()
+
+  if (isSubmitting.value) return
+
+  isSubmitting.value = true
+  submitMessage.value = ''
+
+  try {
+    const webhookUrl = 'https://services.leadconnectorhq.com/hooks/H88YJRj6KegTU4bp21tx/webhook-trigger/b2ceebf4-0303-4a29-b26b-10caa6f0f151'
+
+    const payload = {
+      name: form.name,
+      phone: form.phone,
+      email: form.email,
+      subject: form.subject,
+      message: form.message,
+      source: 'Kontakt űrlap (Footer)',
+      form_type: 'general_contact',
+      submission_date: new Date().toISOString(),
+    }
+
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+
+    if (response.ok) {
+      submitMessage.value = '✅ Köszönjük a megkeresést! Hamarosan jelentkezünk.'
+
+      // Form resetelése
+      form.name = ''
+      form.phone = ''
+      form.email = ''
+      form.subject = ''
+      form.message = ''
+
+      // Üzenet eltüntetése 5 mp után
+      setTimeout(() => {
+        submitMessage.value = ''
+      }, 5000)
+    } else {
+      throw new Error('Hiba a küldéskor')
+    }
+  } catch (error) {
+    console.error('Form submission error:', error)
+    submitMessage.value = '❌ Hiba történt. Kérjük próbálja újra, vagy hívjon minket!'
+  } finally {
+    isSubmitting.value = false
+  }
+}
+</script>
+
 <template>
   <footer>
     <section class="contact" aria-labelledby="contact-heading">
@@ -177,75 +247,6 @@
   </footer>
 </template>
 
-<script setup>
-import { ref, reactive } from 'vue'
-
-const form = reactive({
-  name: '',
-  phone: '',
-  email: '',
-  subject: '',
-  message: '',
-})
-
-const isSubmitting = ref(false)
-const submitMessage = ref('')
-
-const onSubmit = async (event) => {
-  event.preventDefault()
-
-  if (isSubmitting.value) return
-
-  isSubmitting.value = true
-  submitMessage.value = ''
-
-  try {
-    const webhookUrl = 'https://services.leadconnectorhq.com/hooks/YOUR_WEBHOOK_ID/webhook-trigger/YOUR_TRIGGER_ID'
-
-    const payload = {
-      name: form.name,
-      phone: form.phone,
-      email: form.email,
-      subject: form.subject,
-      message: form.message,
-      source: 'Kontakt űrlap (Footer)',
-      form_type: 'general_contact',
-      submission_date: new Date().toISOString(),
-    }
-
-    const response = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    })
-
-    if (response.ok) {
-      submitMessage.value = '✅ Köszönjük a megkeresést! Hamarosan jelentkezünk.'
-
-      // Form resetelése
-      form.name = ''
-      form.phone = ''
-      form.email = ''
-      form.subject = ''
-      form.message = ''
-
-      // Üzenet eltüntetése 5 mp után
-      setTimeout(() => {
-        submitMessage.value = ''
-      }, 5000)
-    } else {
-      throw new Error('Hiba a küldéskor')
-    }
-  } catch (error) {
-    console.error('Form submission error:', error)
-    submitMessage.value = '❌ Hiba történt. Kérjük próbálja újra, vagy hívjon minket!'
-  } finally {
-    isSubmitting.value = false
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .container {
